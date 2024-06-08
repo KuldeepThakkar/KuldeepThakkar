@@ -1,0 +1,39 @@
+//function and structur
+#include<stdio.h>
+#include<conio.h>
+#define p printf
+#define s scanf
+struct item
+{
+   char pname[20];
+   int pcode;
+   int pprice;
+};
+struct item increment2(struct item product);
+void main()
+{
+ struct item item1[2];
+ int i;
+ clrscr();
+ p("\ninput values");
+
+  for(i=0;i<2;i++)
+    {
+	 p("\n enter name code and price= ");
+	s("%s %d %d",item1[i].pname,&item1[i].pcode,&item1[i].pprice);
+    }
+   for(i=0;i<2;i++)
+    {
+	  item1[i]=increment2(item1[i]);
+	  p("\n name= %s \n code=%d \n price= %d",item1[i].pname,item1[i].pcode,item1[i].pprice);
+    }
+
+
+getch();
+}
+
+struct item increment2(struct item product)
+{
+ product.pprice=(product.pprice +( product.pprice*0.10 ) );
+ return product;
+}
